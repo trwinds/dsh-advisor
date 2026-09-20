@@ -1,0 +1,55 @@
+{
+  "name": "dsh-advisor",
+  "version": "1.0.0",
+  "description": "Ask the advisor when in need.",
+  "main": "src/main.js",
+  "exports": {
+    ".": "./src/main.js",
+    "./client": "./src/client.js",
+    "./cordis.yml": "./cordis.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "cordis.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-model-selection",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-api-remotes"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "private": true,
+  "type": "module",
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-llm": "*",
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-client-store": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-client-ui-model-selection": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-commands": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-session": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-session-persistence": "^0.1.5-rc.2",
+    "@deepseek-ai/dsh-session-persistence-jsonl": "^0.1.5-rc.2",
+    "@deepseek-ai/dsh-session-projection": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-settings": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-system-prompt": "0.1.5-rc.2",
+    "immer": "^10.2.0",
+    "react": "^18.3.1",
+    "react-test-renderer": "^18.3.1",
+    "zustand": "~4.4.7"
+  }
+}
